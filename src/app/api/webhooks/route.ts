@@ -6,7 +6,7 @@ import { stripe } from '@/libs/stripe'
 import {
   upsertPriceRecord,
   upsertProductRecord,
-  createOrRetriveCustomer,
+  createOrRetrieveCustomer,
   manageSubscriptionStatusChange
 } from '@/libs/supabaseAdmin'
 

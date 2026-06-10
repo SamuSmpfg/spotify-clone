@@ -4,18 +4,16 @@ import { NextResponse } from "next/server"
 
 import { stripe } from "@/libs/stripe"
 import { getURL } from "@/libs/helpers"
-import { createOrRetriveCustomer } from "@/libs/supabaseAdmin"
+import { createOrRetrieveCustomer } from "@/libs/supabaseAdmin"
 
 export async function POST() {
   try {
     const supabase = createRouteHandlerClient({
       cookies
-    }),
-
+    })
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) throw new Error('Could not get User :(')
-
-    const customer = await createOrRetriveCustomer({
+    const customer = await createOrRetrieveCustomer({
       uuid: user.id || '',
       email: user.email || " ",
     })
