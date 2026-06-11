@@ -30,12 +30,12 @@ export async function POST(
 
   const webhookSecret =
     process.env.STRIPE_WEBHOOK_SECRET
-  let event = Stripe.Event
+  let event: Stripe.Event
 
   try {
     if (!sig || !webhookSecret) return
     event = stripe.webhooks.constructEvent(body, sig, webhookSecret)
-  } catch (error) {
+  } catch (error: any) {
     console.log("Error Message:" + error.message)
     return new NextResponse(`Webhook Error: ${error.message}`, { status: 400 })
   }
@@ -54,7 +54,7 @@ export async function POST(
         case 'customer.subscription.created':
         case 'customer.subscription.updated':
         case 'customer.subscription.deleted':
-          const subscription = event.data.obejct as Stripe.Subscription
+          const subscription = event.data.object as Stripe.Subscription
           await manageSubscriptionStatusChange(
             subscription.id,
             subscription.customer as string,
@@ -63,7 +63,7 @@ export async function POST(
           break;
         case 'checkout.session.completed':
           const checkoutSession = event.data.object as Stripe.Checkout.Session
-          if (checkoutSession.mode === subscription) {
+          if (checkoutSession.mode === "subscription") {
             const subscriptionId = checkoutSession.subscription
             await manageSubscriptionStatusChange(
               subscriptionId as string,

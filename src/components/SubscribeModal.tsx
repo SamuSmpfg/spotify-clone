@@ -7,7 +7,7 @@ import { useState } from "react"
 import { useUser } from "../../hooks/useUser"
 import { toast } from "react-hot-toast"
 import { postData } from "../libs/helpers"
-import { getStripe } from "../libs/stripeClient"
+import getStripe from "../libs/stripeClient"
 import useSubscribeModal from "../../hooks/useSubscribeModal"
 
 interface SubscribeModalProps {
@@ -56,7 +56,7 @@ const SubscribeModal: React.FC<SubscribeModalProps> = ({
         data: { price }
       })
 
-      const stripe = await getStripe()
+      const stripe = await getStripe();
       stripe?.redirectToCheckout({ sessionId })
     } catch (error) {
       toast.error((error as Error)?.message)
