@@ -11,6 +11,7 @@ export async function POST() {
     const supabase = createRouteHandlerClient({
       cookies
     })
+
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) throw new Error('Could not get User :(')
     const customer = await createOrRetrieveCustomer({
