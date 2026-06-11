@@ -1,14 +1,12 @@
-import Stripe from "./stripe"
+import Stripe from "stripe"
 
 export const stripe = new Stripe(
   process.env.STRIPE_SECRET_KEY ?? '',
   {
-    apiVersion: '2022-11-15',
+    apiVersion: '2026-05-27.dahlia',
     appInfo: {
       name: "Spotify Clone Video",
       version: "0.1.0"
     }
   }
 )
-
-export default Stripe

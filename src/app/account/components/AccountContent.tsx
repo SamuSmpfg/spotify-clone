@@ -1,6 +1,6 @@
 'use client'
 
-import { useRouter } from "../../../../node_modules/next/navigation"
+import { useRouter } from "next/navigation"
 import useSubscribeModal from "../../../../hooks/useSubscribeModal"
 import { useUser } from "../../../../hooks/useUser"
 import { useState, useEffect } from "react"

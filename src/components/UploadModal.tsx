@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { FieldValues, SumbitHandler, useForm } from "react-hook-form"
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
 import { toast } from "react-hot-toast"
 import { useUser } from "../../hooks/useUser"
 import uniqid from "uniqid"
@@ -37,7 +37,7 @@ const UploadModal = () => {
     }
   }
 
-  const onSubmit: SumbitHandler<FieldValues> = async (values) => {
+  const onSubmit: SubmitHandler<FieldValues> = async (values) => {
     try {
       setIsLoading(true)
 

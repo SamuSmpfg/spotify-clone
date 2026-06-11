@@ -56,7 +56,7 @@ const SubscribeModal: React.FC<SubscribeModalProps> = ({
         data: { price }
       })
 
-      const stripe = await getStripe();
+      const stripe = await getStripe() as any
       stripe?.redirectToCheckout({ sessionId })
     } catch (error) {
       toast.error((error as Error)?.message)
