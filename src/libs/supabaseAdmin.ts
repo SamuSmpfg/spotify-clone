@@ -1,12 +1,9 @@
-import Stripe from 'stripe'
-import { createClient } from '@supabase/supabase-js'
-import { dataBase } from '@/types_db'
-import { Price, Product } from '@/types'
+import Stripe from './stripe'
+import { createClient } from './@supabase/supabase-js'
+import { Price, Product } from './@/types'
 import { stripe } from './stripe'
 import { toDateTime } from './helpers'
-import { Database } from '../src/types_db'
-import { StreamPipeOptions } from 'stream/web'
-import { format } from 'url'
+import { Database } from '../types_db'
 
 export const supabaseAdmin = createClient<Database>(
   process.env.NEXT_PUBLIC_SUPABASE_URL || '',
@@ -61,7 +58,7 @@ const upsertPriceRecord = async (price: Stripe.Price) => {
 }
 
 
-const createOrRetriveCustomer = async ({
+const createOrRetrieveCustomer = async ({
   email,
   uuid
 }: {
@@ -180,6 +177,6 @@ const manageSubscriptionStatusChange = async (
 export {
   upsertPriceRecord,
   upsertProductRecord,
-  createOrRetriveCustomer,
+  createOrRetrieveCustomer,
   manageSubscriptionStatusChange
 }

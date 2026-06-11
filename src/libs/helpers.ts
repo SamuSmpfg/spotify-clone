@@ -1,6 +1,6 @@
-import { Price } from "../src/types"
+import { Price } from "../types"
 
-export const getUrl = () => {
+export const getURL = () => {
   let url =
     process.env.NEXT_PUBLIC_SITE_URL ??
     process.env.NEXT_PUBLIC_VERSEL_URL ??

@@ -6,8 +6,8 @@ import Button from "./Button"
 import { useState } from "react"
 import { useUser } from "../../hooks/useUser"
 import { toast } from "react-hot-toast"
-import { postData } from "../../libs/helpers"
-import { getStripe } from "../../libs/stripeClient"
+import { postData } from "../libs/helpers"
+import { getStripe } from "../libs/stripeClient"
 import useSubscribeModal from "../../hooks/useSubscribeModal"
 
 interface SubscribeModalProps {
