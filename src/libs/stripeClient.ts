@@ -1,5 +1,5 @@
 import { loadStripe, Stripe } from "./@stripe/stripe-js"
-import { stripe } from "./stripe"
+import { Stripe } from "./stripe"
 
 let stripePromise: Promise<Stripe | null>
 
