@@ -8,9 +8,8 @@ import { createOrRetrieveCustomer } from "@/libs/supabaseAdmin"
 
 export async function POST() {
   try {
-    const cookieStore = cookies()
     const supabase = createRouteHandlerClient({
-      cookies: () => cookieStore
+      cookies
     })
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) throw new Error('Could not get User :(')
