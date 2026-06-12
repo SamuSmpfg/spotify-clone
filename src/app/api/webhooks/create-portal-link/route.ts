@@ -6,6 +6,8 @@ import { stripe } from "@/libs/stripe"
 import { getURL } from "@/libs/helpers"
 import { createOrRetrieveCustomer } from "@/libs/supabaseAdmin"
 
+export const dynamic = 'force-dynamic';
+
 export async function POST() {
   try {
     const supabase = createRouteHandlerClient({
